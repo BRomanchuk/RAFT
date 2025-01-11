@@ -15,6 +15,7 @@ from utils import flow_viz
 from utils.utils import InputPadder
 
 from google.colab.patches import cv2_imshow
+from tqdm import tqdm
 
 
 
@@ -64,7 +65,7 @@ def demo(args):
                  glob.glob(os.path.join(args.path, '*.jpg'))
         
         images = sorted(images)
-        for imfile1, imfile2 in zip(images[:-1], images[1:]):
+        for imfile1, imfile2 in tqdm(zip(images[:-1], images[1:])):
             image1 = load_image(imfile1)
             image2 = load_image(imfile2)
             # print(image1.shape)
